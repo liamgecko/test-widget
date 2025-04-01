@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Widget Test Page with Clear Storage</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f9;
+        }
+        #widget-container {
+            width: 100%;
+            max-width: 400px;
+            height: 500px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        #clear-storage-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #ff5733;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #clear-storage-button:hover {
+            background-color: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+
+<div id="widget-container">
+    <script>
+        window.GeckoChatSettings = {
+            account_id: 'apBFLjrBp0ZYAPn',
+            auto_boot: true
+        };
+    </script>
+    <script src="https://embed.geckochat.io/stage"></script>
+</div>
+
+<button id="clear-storage-button">Clear Local and Session Storage</button>
+
+<script>
+    // Example widget code - replace this with your actual widget script
+    (function() {
+        const widgetContainer = document.getElementById('widget-container');
+        widgetContainer.innerHTML = '<p>Test widget - Stage 281</p>';
+    })();
+
+    // Function to clear local and session storage
+    document.getElementById('clear-storage-button').addEventListener('click', function() {
+        localStorage.clear();
+        sessionStorage.clear();
+        alert('Local and Session Storage Cleared');
+    });
+</script>
+
+<button gecko-chat-open>widget trigger open</button>
+<button gecko-chat-close>widget trigger close</button>
+<button gecko-chat-boot>widget trigger boot</button>
+<button gecko-chat-kill>widget trigger kill</button>
+<button gecko-chat-message="hello there!!">widget trigger message</button>
+
+</body>
+</html>
